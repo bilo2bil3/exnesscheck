@@ -17,5 +17,14 @@ COPY . .
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
+# Set the default port for DigitalOcean App Platform
+ENV PORT=8080
+
+# Set the application module
+ENV GUNICORN_CMD_ARGS="--worker-tmp-dir /dev/shm"
+
+# Expose port
+EXPOSE 8080
+
 # Run gunicorn
-CMD gunicorn exness_client_validator.wsgi:application --bind 0.0.0.0:$PORT 
+CMD gunicorn exness_client_validator.wsgi:application --bind 0.0.0.0:8080 

@@ -1,0 +1,1 @@
+web: gunicorn --worker-tmp-dir /dev/shm exness_client_validator.wsgi:application 
