@@ -1,0 +1,42 @@
+name: exness-client-validator
+region: nyc
+services:
+  - name: web
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: your-github-username/exness-client-validator
+    build_command: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    run_command: gunicorn exness_client_validator.wsgi:application --bind 0.0.0.0:$PORT
+    http_port: 8080
+    instance_size_slug: basic-xs
+    instance_count: 1
+    routes:
+      - path: /
+    envs:
+      - key: DEBUG
+        value: "False"
+        scope: RUN_TIME
+      - key: SECRET_KEY
+        scope: RUN_TIME
+        type: SECRET
+      - key: ALLOWED_HOSTS
+        scope: RUN_TIME
+      - key: DATABASE_URL
+        scope: RUN_TIME
+        type: SECRET
+      - key: EXNESS_API_EMAIL
+        scope: RUN_TIME
+        type: SECRET
+      - key: EXNESS_API_PASSWORD
+        scope: RUN_TIME
+        type: SECRET
+      - key: PORT
+        value: "8080"
+        scope: RUN_TIME
+
+databases:
+  - name: exness-validator-db
+    engine: PG
+    version: "13"
+    production: false 

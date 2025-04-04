@@ -238,7 +238,7 @@ class ExnessApiClient:
                         }
                 
                 # If auth failed, try refreshing the token once
-                elif response.status_code == 401 and base_url == api_versions[-1]:  # Only try token refresh on last API version
+                elif response.status_code == 401 and base_url == api_versions[-1]: 
                     # Clear the cached token
                     cls.TOKEN_CACHE['token'] = None
                     cls.TOKEN_CACHE['expires_at'] = None
