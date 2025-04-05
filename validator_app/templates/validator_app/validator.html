@@ -12,7 +12,142 @@
             background-color: #000;
             color: #fff;
             font-family: Arial, sans-serif;
+            background-image: url('https://tegotrend.com/wp-content/uploads/2025/04/Main-banner-bg-1-1-scaled.webp');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
         }
+    nav {
+  position: relative;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-family: "Montserrat", sans-serif;
+  height: 80px;
+  background-color: #000000;
+  box-shadow: 5px 2px #501ac8;
+  justify-items: center;
+}
+nav .logo {
+    float: left;
+    display: flex;
+    justify-content: center;
+    width: 10%;
+}
+.logo-image{
+    width: 50%;
+}
+nav .links {
+  padding: 0;
+  margin: 0;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+nav .links li {
+  list-style: none;
+  padding-right: 15px;
+}
+nav .links a {
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+#nav-toggle {
+  position: absolute;
+  top: -100px;
+}
+nav .icon-burger {
+  display: none;
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+nav .line {
+  width: 30px;
+  height: 5px;
+  background-color: #fff;
+  margin: 5px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+@media screen and (max-width: 768px) {
+  nav .logo {
+    float: none;
+    width: 30%;
+    justify-content: center;
+    padding-top: 1%;
+  }
+  .start-now{
+    margin-left: 0%!important;
+    padding-right: 5%;
+}
+  nav .links {
+    float: none;
+    position: fixed;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 100px;
+    bottom: 100%;
+    width: auto;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+  }
+  nav .links a {
+    font-size: 20px;
+  }
+  nav :checked ~ .links {
+    bottom: 0;
+  }
+  nav .icon-burger {
+    display: block;
+  }
+  nav :checked ~ .icon-burger .line:nth-child(1) {
+    transform: translateY(10px) rotate(225deg);
+  }
+  nav :checked ~ .icon-burger .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-225deg);
+  }
+  nav :checked ~ .icon-burger .line:nth-child(2) {
+    opacity: 0;
+  }
+}
+
+.start-now{
+    margin-left: 20%;
+    padding-right: 5%;
+}
+.start-button{
+    background: #501AC8;
+    border-radius: 20px;
+    border-style: none;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 5px 15px 5px 15px;
+}
+
+.youtube-link {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  color: #000;
+  text-decoration: none;
+  font-size: 12px;
+}
+
         .validation-container {
             max-width: 800px;
             margin: 50px auto;
@@ -23,9 +158,12 @@
             margin-bottom: 40px;
         }
         .form-container {
+            width: 90%;
             background-color: #000;
             border-radius: 10px;
-            padding: 20px;
+            justify-self: center;
+            padding: 15px;
+            border: solid 1px #ffffff;
         }
         .btn-send {
             background-color: #6c2adf;
@@ -33,7 +171,7 @@
             border: none;
             border-radius: 4px;
             padding: 12px 20px;
-            width: 100%;
+            width: 40%;
             margin-top: 20px;
             font-weight: bold;
             cursor: pointer;
@@ -43,7 +181,7 @@
         }
         .divider {
             text-align: center;
-            margin: 20px 0;
+            margin-top: 20px;
             font-weight: bold;
         }
         .result-container {
@@ -77,21 +215,58 @@
         .detail-value {
             flex: 2;
         }
+        .disclaimer-text{
+            font-size: 12px;
+        }
     </style>
 </head>
+
+<!-- START Navebar -->
+<nav>
+    <input id="nav-toggle" type="checkbox">
+    <div class="logo">
+        <img class="logo-image" src="https://tegotrend.com/wp-content/uploads/2024/05/cropped-Tego-1-01-scaled-1.webp">
+    </div>
+    <ul class="links">
+      <li><a href="https://tegotrend.com/">Home</a></li>
+      <li><a href="https://tegotrend.com/blog/">Blogs</a></li>
+      <li><a href="https://tegotrend.com/about-us/">About Us</a></li>
+      <li><a href="https://tegotrend.com/educational-resource/">Educational Resources</a></li>
+      <li><a href="https://tegotrend.com/contact-us/">Contact Us</a></li>
+      <div class="start-now">
+        <button class="start-button">Start now
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M13 2l.018 .001l.016 .001l.083 .005l.011 .002h.011l.038 .009l.052 .008l.016 .006l.011 .001l.029 .011l.052 .014l.019 .009l.015 .004l.028 .014l.04 .017l.021 .012l.022 .01l.023 .015l.031 .017l.034 .024l.018 .011l.013 .012l.024 .017l.038 .034l.022 .017l.008 .01l.014 .012l.036 .041l.026 .027l.006 .009c.12 .147 .196 .322 .218 .513l.001 .012l.002 .041l.004 .064v6h5a1 1 0 0 1 .868 1.497l-.06 .091l-8 11c-.568 .783 -1.808 .38 -1.808 -.588v-6h-5a1 1 0 0 1 -.868 -1.497l.06 -.091l8 -11l.01 -.013l.018 -.024l.033 -.038l.018 -.022l.009 -.008l.013 -.014l.04 -.036l.028 -.026l.008 -.006a1 1 0 0 1 .402 -.199l.011 -.001l.027 -.005l.074 -.013l.011 -.001l.041 -.002z"></path>
+              </svg>
+        </button>
+    </div>
+    </ul>
+
+   
+    <label for="nav-toggle" class="icon-burger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </label>
+  </nav>
+  
+<!-- END Navbar -->
+
 <body>
     <div class="container validation-container">
-        <div class="heading">
-            <h1>Validation check</h1>
-            <h2>Please choose either way to check!</h2>
-        </div>
-
         <div class="form-container">
-            <form method="post">
+        <div class="heading">
+            <img style="padding-bottom: 5px;" src="https://tegotrend.com/wp-content/uploads/2025/04/Exness-yellow.png" width="35%">
+            <h1>Account Check</h1>
+            <h2 style="font-size: 20px;">Use your account or email to check!</h2>
+        </div>
+            <form method="post" style="
+            text-align: center;">
                 {% csrf_token %}
                 
                 <div class="mb-3">
-                    <label for="{{ form.client_id.id_for_label }}" class="form-label">Client ID</label>
+                    <label for="{{ form.client_id.id_for_label }}" class="form-label">
+                    MT4/5 Account</label>
                     {{ form.client_id }}
                 </div>
                 
@@ -108,7 +283,7 @@
                 </div>
                 {% endif %}
                 
-                <button type="submit" class="btn btn-send">Send</button>
+                <button type="submit" class="btn btn-send">Check Now</button>
             </form>
         </div>
         
@@ -124,9 +299,11 @@
         <div class="result-container {% if is_registered %}registered{% else %}not-registered{% endif %}">
             <h3>
                 {% if is_registered %}
-                    <span class="text-success">YES</span> - Client is registered under your affiliate account
+                    <span class="text-success">YES</span> - This account is registered under our partnership account!
                 {% else %}
-                    <span class="text-danger">NO</span> - Client is not registered under your affiliate account
+                    <span class="text-danger">NO</span> <p>- This account is not registered under our partnership account!</p> 
+                    <p>- Please check if you entered the correct account / email, or register a new account with Exness <a href="https://one.exnesstrack.org/a/0n3oav76p1">here</a></p>
+                    <p style="font-size: 15px; padding-top: 5px;">- Please note: If you just registered a new account, please wait 10 minutes and re-check again.</p>
                 {% endif %}
             </h3>
             
@@ -137,7 +314,7 @@
                     <div class="detail-value">{{ client_validation.reg_date|date:"Y-m-d" }}</div>
                 </div>
                 <div class="detail-row">
-                    <div class="detail-label">Client Account:</div>
+                    <div class="detail-label">MT4/5 Account:</div>
                     <div class="detail-value">{{ client_validation.client_account }}</div>
                 </div>
                 <div class="detail-row">
@@ -148,18 +325,18 @@
                     <div class="detail-label">Volume (Lots):</div>
                     <div class="detail-value">{{ client_validation.volume_lots }}</div>
                 </div>
-                <div class="detail-row">
+                <!-- <div class="detail-row">
                     <div class="detail-label">Volume (USD):</div>
                     <div class="detail-value">{{ client_validation.volume_mln_usd }} million USD</div>
-                </div>
-                <div class="detail-row">
+                </div> -->
+                <!-- <div class="detail-row">
                     <div class="detail-label">Reward:</div>
                     <div class="detail-value">{{ client_validation.reward }}</div>
                 </div>
                 <div class="detail-row">
                     <div class="detail-label">Reward (USD):</div>
                     <div class="detail-value">{{ client_validation.reward_usd }} USD</div>
-                </div>
+                </div> -->
             </div>
             {% endif %}
         </div>
@@ -185,4 +362,28 @@
         });
     </script>
 </body>
+
+<footer>
+    <div style="padding: 20px; background: #000000;">
+
+<p class="disclaimer-text"> <strong>Disclaimer:</strong><br>
+TegoTrend participates in the Exness partnership program; however, we are an independent entity and not owned, operated, or directly affiliated with Exness. 
+Exness is a registered trademark of its respective owner.
+</p>
+<p class="disclaimer-text"> <strong>Risk Disclosure:</strong><br>
+    Futures and forex trading contains substantial risk and is not for every investor. An investor could potentially lose all or more than the initial investment. Risk capital is money that can be lost without jeopardizing ones’ financial security or life style. Only risk capital should be used for trading and only those with sufficient risk capital should consider trading. Past performance is not necessarily indicative of future results.
+    </p>
+<p class="disclaimer-text"><strong>Risk Disclaimer:</strong><br>Online trading in leveraged Foreign Exchange and CFD instruments contains a high level of risk and may not be suitable for all investors. High leverage trading can subject your account to high losses as well as present opportunities for profit. Before taking the decision to invest in margin instruments, you must seriously consider your investment goals, experience level, and risk appetite. Online trading in leveraged instruments may cause you to lose some or all of the funds in your account and you should not risk any funds you cannot afford to lose. You should be aware of all the risks associated with online trading on margin and consult with an independent investment advisor if you have any concerns.</p>
+
+<p class="disclaimer-text"><strong>Hypothetical Performance Disclosure:</strong><br>
+    Hypothetical performance results have many inherent limitations, some of which are described below. no representation is being made that any account will or is likely to achieve profits or losses similar to those shown; in fact, there are frequently sharp differences between hypothetical performance results and the actual results subsequently achieved by any particular trading program. One of the limitations of hypothetical performance results is that they are generally prepared with the benefit of hindsight. In addition, hypothetical trading does not involve financial risk, and no hypothetical trading record can completely account for the impact of financial risk of actual trading. for example, the ability to withstand losses or to adhere to a particular trading program in spite of trading losses are material points which can also adversely affect actual trading results. There are numerous other factors related to the markets in general or to the implementation of any specific trading program which cannot be fully accounted for in the preparation of hypothetical performance results and all which can adversely affect trading results.</p>
+
+<p class="disclaimer-text"><strong>Testimonial Disclosure:</strong><br>
+    Testimonials appearing on www.tegotrend.com may not be representative of the experience of other clients or customers and is not a guarantee of future performance or success.</p>
+
+<p class="disclaimer-text"><strong>Please note:</strong><br>
+    That the all strategies and tools or for any interpretation by you of said information are provided for illustrative and educational purposes only. It serves solely to illustrate strategies and tools or for any interpretation by you of said information. Listed strategies and tools or for any interpretation by you of said information and their individual parameters therefore in no way represent any professional and/or financial advice or any other recommendations on how to act or what strategy to choose. All strategies other materials are of a general nature and do not address the circumstances of any particular individual or entity. You alone assume the sole responsibility of testing and evaluating the merits, suitability and risks associated with any given strategy or the deployment of any algorithm. The strategies may not be suitable for you at all and may not reflect your current financial or other circumstances and investment objectives. TegoTrend LTD and any of its representatives or employees bears no responsibility for damage or other damages in any way arising from the use of the strategies, materials, and tools or for any interpretation by you of said information; such a responsibility is expressly excluded.
+            </p>
+    </div>
+</footer>
 </html> 
