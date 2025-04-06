@@ -6,7 +6,7 @@ class ClientValidationForm(forms.Form):
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter client ID'
+            'placeholder': 'Enter MT4/5 Account'
         })
     )
     
